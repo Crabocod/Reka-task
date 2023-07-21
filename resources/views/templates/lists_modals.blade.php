@@ -16,7 +16,7 @@
                         <label for="perms" class="col-form-label">Кому доступен:</label>
                         <select name="perms[]" class="form-control" id="perms" multiple>
                             @foreach($users as $user)
-                                <option value="{{ $user['id'] }}" @if(in_array($list->id, $user['list_ids'])) selected @endif >{{ $user['login'] }}</option>
+                                <option value="{{ $user['id'] }}" @if(!empty($user['list_ids']) && in_array($list->id, $user['list_ids'])) selected @endif >{{ $user['login'] }}</option>
                             @endforeach
                         </select>
                     </div>

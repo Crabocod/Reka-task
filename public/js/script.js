@@ -116,6 +116,7 @@ $(document).ready(function () {
                     $('#tasks-container').html(msg.tasks);
                     _this.closest('.editTaskForm').find('button[data-bs-dismiss=modal]').click();
                     $('#task_modals').html(msg.tasks_modals);
+                    $('#addTaskForm')[0].reset();
                 }else{
                     alert('error');
                 }
@@ -187,6 +188,7 @@ $(document).ready(function () {
                     $('#tasks-container').html(msg.tasks);
                     $('#addTaskForm button[data-bs-dismiss=modal]').click();
                     $('#task_modals').html(msg.tasks_modals);
+                    $('#addTaskForm')[0].reset();
                 }else{
                     alert('error');
                 }
@@ -210,6 +212,7 @@ $(document).ready(function () {
                     $('#lists-container').html(msg.lists);
                     $('#addListForm button[data-bs-dismiss=modal]').click();
                     $('#list_modals').html(msg.lists_modals);
+                    $('#addListForm')[0].reset();
                 }else{
                     alert('error');
                 }

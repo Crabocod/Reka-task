@@ -25,6 +25,11 @@ class UserController extends Controller
     public function signUp(Request $request){
 
         if ($request->pass == $request->pass_repeat){
+
+            $res = User::where('login', $request->login)->first();
+            if (!empty($res))
+                return 0;
+
             User::create([
                'login' => $request->login,
                'password' => Hash::make($request->pass),
