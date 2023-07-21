@@ -104,15 +104,16 @@ class TaskController extends Controller
             TaskTags::where('task_id', $r['task_id'])->delete();
 
             $tags = explode(',', $r['tags']);
-            $tags_data = [];
-            foreach ($tags as $tag){
-                $tags_data[] = [
-                    'task_id' => $task->id,
-                    'title' => trim($tag)
-                ];
+            if (!empty($tags[0])) {
+                $tags_data = [];
+                foreach ($tags as $tag) {
+                    $tags_data[] = [
+                        'task_id' => $task->id,
+                        'title' => trim($tag)
+                    ];
+                }
+                TaskTags::insert($tags_data);
             }
-
-            TaskTags::insert($tags_data);
 
             $tasks_html = "";
             $tasks_modals_html = "";
@@ -178,15 +179,16 @@ class TaskController extends Controller
             $task = Task::create($data);
 
             $tags = explode(',', $r['tags']);
-            $tags_data = [];
-            foreach ($tags as $tag){
-                $tags_data[] = [
-                    'task_id' => $task->id,
-                    'title' => trim($tag)
-                ];
+            if (!empty($tags[0])) {
+                $tags_data = [];
+                foreach ($tags as $tag) {
+                    $tags_data[] = [
+                        'task_id' => $task->id,
+                        'title' => trim($tag)
+                    ];
+                }
+                TaskTags::insert($tags_data);
             }
-
-            TaskTags::insert($tags_data);
 
             $tasks_html = "";
             $tasks_modals_html = "";

@@ -157,6 +157,7 @@ $(document).ready(function () {
                 if (msg.status == 1){
                     $('#lists-container').html(msg.lists);
                     _this.closest('.editListForm').find('button[data-bs-dismiss=modal]').click();
+                    $('#list_modals').html(msg.lists_modals);
                 }else{
                     alert('error');
                 }
@@ -208,6 +209,7 @@ $(document).ready(function () {
                 if (msg.status == 1){
                     $('#lists-container').html(msg.lists);
                     $('#addListForm button[data-bs-dismiss=modal]').click();
+                    $('#list_modals').html(msg.lists_modals);
                 }else{
                     alert('error');
                 }
